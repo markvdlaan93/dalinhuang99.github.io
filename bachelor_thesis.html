@@ -6,48 +6,26 @@
     <meta name="description" content="NetVLAD: CNN architecture for weakly supervised place recognition - project page">
     <meta name="author" content="WILLOW team">
 
-    <title>NetVLAD: CNN architecture for weakly supervised place recognition</title>
+    <title>Defining an architecture for blockchain e-voting systems</title>
 
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/main.css" rel="stylesheet">
 
 </head>
 
-<body>
+<body style="padding-top:20px;padding-bottom: 20px">
 
 <div class="container">
     <div class="header">
-        <h3 class="text-muted">NetVLAD: CNN architecture for weakly supervised place recognition</h3>
-    </div>
-
-    <div class="jumbotron">
-        <img src="images/vlad_cnn.png" title="CNN architecture with the NetVLAD layer" style="max-width:90%;" />
-        <br>
-        CNN architecture with the NetVLAD layer
-    </div>
-
-    <div class="jumbotron">
-        <div class="row">
-            <div class="col-md-7">
-                <img src="images/teaser.png" title="Query and result" style="max-width:100%;" />
-            </div>
-            <div class="col-md-5">
-                <p>
-                    Our trained NetVLAD descriptor correctly recognizes the location (b)
-                    of the query photograph (a) despite the large amount of clutter (people, cars), changes in viewpoint and completely different illumination (night vs daytime).</p>
-            </div>
-        </div>
+        <h3>Defining an architecture for blockchain e-voting systems</h3>
     </div>
 
     <div class="row">
 
         <h3>Authors</h3>
         <ul>
-            <li><a href="http://www.relja.info/">Relja Arandjelović</a></li>
-            <li><a href="http://cmp.felk.cvut.cz/~gronapet/">Petr Gronat</a></li>
-            <li><a href="http://www.ok.ctrl.titech.ac.jp/~torii/">Akihiko Torii</a></li>
-            <li><a href="http://cmp.felk.cvut.cz/~pajdla/">Tomas Pajdla</a></li>
-            <li><a href="http://www.di.ens.fr/~josef/">Josef Sivic</a></li>
+            <li><a href="index.html">Mark van der Laan</a></li>
+            <li><a href="#">Wesley Liefhebber</a></li>
         </ul>
     </div>
 
@@ -55,24 +33,39 @@
     <div class="row">
         <h3>Abstract</h3>
         <p style="text-align: justify;">
-            We tackle the problem of large scale visual place recognition, where the
-            task is to quickly and accurately recognize the location of a given
-            query photograph. We present the following three principal
-            contributions. First, we develop a convolutional neural network (CNN)
-            architecture that is trainable in an end-to-end manner directly for the
-            place recognition task. The main component of this architecture,
-            NetVLAD, is a new generalized VLAD layer, inspired by the ``Vector of
-            Locally Aggregated Descriptors" image representation commonly used in
-            image retrieval. The layer is readily pluggable into any CNN
-            architecture and amenable to training via backpropagation. Second, we
-            develop a training procedure, based on a new weakly supervised ranking
-            loss, to learn parameters of the architecture in an end-to-end manner
-            from images depicting the same places over time downloaded from Google
-            Street View Time Machine. Finally, we show that the proposed
-            architecture significantly outperforms non-learnt image representations
-            and off-the-shelf CNN descriptors on two challenging place recognition
-            benchmarks, and improves over current state-of-the-art compact image
-            representations on standard image retrieval benchmarks.
+            This thesis defines an e-voting architecture based on blockchain technology. Within current decentralized
+            blockchain e-voting implementations there are several problems under which poor privacy protection of voting
+            behavior and inappropriate use of blockchain technology. These problems have led to a situation in which
+            current blockchain e-voting systems actually are not any safer than centralized e-voting systems that do
+            not use blockchain technology. Therefore, in this thesis, there will be described how e-voting processes can
+            potentially be enhanced by applying blockchain technology in an appropriated manner. This is done by presenting
+            an implementation- independent ’blueprint’ of a set of interrelated components, which is also called a
+            (software) architecture. <br><br>
+
+            First of all, in order to create an architecture, it is important to provide an in-depth analysis of the relevant
+            domains which are in this case electoral processes, blockchain e-voting implementations and information security.
+            This analysis revealed that each electoral process has its own set of flaws which resulted in a few companies that
+            tried to solve these problems with blockchain. In order to better understand how these implementations work, the domain
+            analysis also contains an in-depth analysis of how blockchain works. This analysis revealed that blockchain can potentially
+            solve some serious problems which centralized solutions cannot solve such as precisely track actions, immutable data and
+            prevent that a vote can be casted multiple times by a single voter. The domain analysis also revealed that the use of
+            a blockchain that can only be altered by a single party is undesirable and eliminates almost all strengths of blockchain.
+            Besides, the domain analysis also indicated that voting from the voters’ own device is undesirable since there cannot
+            be guaranteed that the device does not contain malicious software. <br><br>
+
+            The results of the domain analysis were used in order to create an architecture which tries to solve the problems in
+            current e-voting implementations. This has led to a proposal which uses cryptographic techniques such as linkable ring
+            signatures in order to preserve privacy on the blockchain. Moreover, by using public key cryptography there has also
+            been researched how to prevent disclosure of voting behavior during election day. Together with these important factors,
+            this architecture also contains practicalities like synchronization of nodes, the internal software structure of the
+            voting booths, generating truly random numbers and more. <br><br>
+
+            Although the proposed architecture is not used in an actual election yet, the proposal has been validated with help of
+            experts in the domain of both e-voting and blockchain. This has led to a design which has acceptance of the experts
+            in the domain but it still needs to be researched in a real situation whether security measures like linkable ring
+            signatures really preserve privacy of the voting behavior.
+
+            <br><br><strong>Keywords:</strong> E-voting, blockchain, linkable ring signature technology, encryption, voting processes
         </p>
     </div>
     <div class="row">
