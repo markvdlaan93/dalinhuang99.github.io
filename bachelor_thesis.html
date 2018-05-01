@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="NetVLAD: CNN architecture for weakly supervised place recognition - project page">
+    <meta name="author" content="WILLOW team">
+
+    <title>NetVLAD: CNN architecture for weakly supervised place recognition</title>
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/main.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+<div class="container">
+    <div class="header">
+        <h3 class="text-muted">NetVLAD: CNN architecture for weakly supervised place recognition</h3>
+    </div>
+
+    <div class="jumbotron">
+        <img src="images/vlad_cnn.png" title="CNN architecture with the NetVLAD layer" style="max-width:90%;" />
+        <br>
+        CNN architecture with the NetVLAD layer
+    </div>
+
+    <div class="jumbotron">
+        <div class="row">
+            <div class="col-md-7">
+                <img src="images/teaser.png" title="Query and result" style="max-width:100%;" />
+            </div>
+            <div class="col-md-5">
+                <p>
+                    Our trained NetVLAD descriptor correctly recognizes the location (b)
+                    of the query photograph (a) despite the large amount of clutter (people, cars), changes in viewpoint and completely different illumination (night vs daytime).</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+
+        <h3>Authors</h3>
+        <ul>
+            <li><a href="http://www.relja.info/">Relja Arandjelović</a></li>
+            <li><a href="http://cmp.felk.cvut.cz/~gronapet/">Petr Gronat</a></li>
+            <li><a href="http://www.ok.ctrl.titech.ac.jp/~torii/">Akihiko Torii</a></li>
+            <li><a href="http://cmp.felk.cvut.cz/~pajdla/">Tomas Pajdla</a></li>
+            <li><a href="http://www.di.ens.fr/~josef/">Josef Sivic</a></li>
+        </ul>
+    </div>
+
+
+    <div class="row">
+        <h3>Abstract</h3>
+        <p style="text-align: justify;">
+            We tackle the problem of large scale visual place recognition, where the
+            task is to quickly and accurately recognize the location of a given
+            query photograph. We present the following three principal
+            contributions. First, we develop a convolutional neural network (CNN)
+            architecture that is trainable in an end-to-end manner directly for the
+            place recognition task. The main component of this architecture,
+            NetVLAD, is a new generalized VLAD layer, inspired by the ``Vector of
+            Locally Aggregated Descriptors" image representation commonly used in
+            image retrieval. The layer is readily pluggable into any CNN
+            architecture and amenable to training via backpropagation. Second, we
+            develop a training procedure, based on a new weakly supervised ranking
+            loss, to learn parameters of the architecture in an end-to-end manner
+            from images depicting the same places over time downloaded from Google
+            Street View Time Machine. Finally, we show that the proposed
+            architecture significantly outperforms non-learnt image representations
+            and off-the-shelf CNN descriptors on two challenging place recognition
+            benchmarks, and improves over current state-of-the-art compact image
+            representations on standard image retrieval benchmarks.
+        </p>
+    </div>
+    <div class="row">
+        <h3>Paper</h3>
+        <p>
+            <a href="http://arxiv.org/abs/1511.07247" target="_blank">[Paper on arXiv]</a>
+            <a href="cvpr16_NetVLAD_presentation.pptx" target="_blank">[Presentation (54 MB)]</a>
+        </p>
+        <h4>BibTeX</h4>
+        <pre><tt>@InProceedings{Arandjelovic16,
+  author       = "Arandjelovi\'c, R. and Gronat, P. and Torii, A. and Pajdla, T. and Sivic, J.",
+  title        = "{NetVLAD}: {CNN} architecture for weakly supervised place recognition",
+  booktitle    = "IEEE Conference on Computer Vision and Pattern Recognition",
+  year         = "2016",
+}</tt></pre>
+    </div>
+
+    <div class="row">
+        <h3>Offline demo</h3>
+        Place recognition results for all queries in the 24/7 Tokyo dataset.
+        <ul>
+            <li>
+                <a href="demo/netvlad/00.html">Ours: VGG-16 + NetVLAD + whitening (trained on Tokyo Time Machine)</a>
+            </li>
+            <li>
+                <a href="demo/sift/00.html">Best baseline: RootSIFT + VLAD + whitening</a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="row">
+        <h3>Code</h3>
+        <ul>
+            <li>
+                <a href="https://github.com/Relja/netvlad">GitHub project page: <b>netvlad</b></a>
+            </li>
+            <li>
+                <a href="netvlad_v103.tar.gz">Packaged Code v1.03 (04 Mar 2016)</a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="row">
+        <h3>Downloads</h3>
+
+        <h4>Trained Models (02 May 2016)</h4>
+
+        <ul>
+            <li>
+                <a href="data/models/vd16_pitts30k_conv5_3_vlad_preL2_intra_white.mat">The best model (VGG-16 + NetVLAD + whitening, trained on Pittsburgh)
+                </a> (529 MB)
+            <li>
+                <a href="data/netvlad_v103_allmodels.tar.gz">All models</a> (3 GB)
+            </li>
+            </li>
+            <li>
+                Individual models can be downloaded below.
+                The best models are VGG-16 + NetVLAD + whitening.
+            </li>
+        </ul>
+
+        <!-- <table class="table table-striped" style="text-align:center;"> -->
+        <table class="table table-bordered" style="text-align:center;">
+            <thead>
+            <tr>
+                <th style="text-align:center">Base Network + <br>Pooling Method</th>
+                <th style="text-align:center">Off-the-shelf on Pitts30k</th>
+                <th style="text-align:center">Off-the-shelf on TokyoTM</th>
+                <th style="text-align:center">Trained on Pitts30k</th>
+                <th style="text-align:center">Trained on Pitts250k</th>
+                <th style="text-align:center">Trained on TokyoTM</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <th style="text-align:center">VGG-16 + NetVLAD + whitening (530 MB)</th>
+                <td><a href="data/models/vd16_offtheshelf_conv5_3_pitts30k_train_vlad_preL2_intra_white.mat">download</a></td>
+                <td><a href="data/models/vd16_offtheshelf_conv5_3_tokyoTM_train_vlad_preL2_intra_white.mat">download</a></td>
+                <td><a href="data/models/vd16_pitts30k_conv5_3_vlad_preL2_intra_white.mat">download</a></td>
+                <td></td>
+                <td><a href="data/models/vd16_tokyoTM_conv5_3_vlad_preL2_intra_white.mat">download</a> </td>
+            </tr>
+            <tr>
+                <th style="text-align:center">VGG-16 + NetVLAD (53 MB)</th>
+                <td><a href="data/models/vd16_offtheshelf_conv5_3_pitts30k_train_vlad_preL2_intra.mat">download</a></td>
+                <td><a href="data/models/vd16_offtheshelf_conv5_3_tokyoTM_train_vlad_preL2_intra.mat">download</a></td>
+                <td><a href="data/models/vd16_pitts30k_conv5_3_vlad_preL2_intra.mat">download</a></td>
+                <td></td>
+                <td><a href="data/models/vd16_tokyoTM_conv5_3_vlad_preL2_intra.mat">download</a> </td>
+            </tr>
+            <tr>
+                <th style="text-align:center">VGG-16 + Max (53 MB)</th>
+                <td colspan="2"><a href="data/models/vd16_offtheshelf_conv5_3_max.mat">download</a></td>
+                <td><a href="data/models/vd16_pitts30k_conv5_3_max.mat">download</a></td>
+                <td></td>
+                <td><a href="data/models/vd16_tokyoTM_conv5_3_max.mat">download</a></td>
+            </tr>
+            <tr>
+                <th style="text-align:center">AlexNet + NetVLAD + whitening (250 MB)</th>
+                <td></td>
+                <td></td>
+                <td> <a href="data/models/caffe_pitts30k_conv5_vlad_preL2_intra_white.mat">download</a></td>
+                <td></td>
+                <td> <a href="data/models/caffe_tokyoTM_conv5_vlad_preL2_intra_white.mat">download</a></td>
+            </tr>
+            <tr>
+                <th style="text-align:center">AlexNet + NetVLAD (10 MB)</th>
+                <td> <a href="data/models/caffe_offtheshelf_conv5_pitts30k_train_vlad_preL2_intra.mat">download</a></td>
+                <td> <a href="data/models/caffe_offtheshelf_conv5_tokyoTM_train_vlad_preL2_intra.mat">download</a></td>
+                <td> <a href="data/models/caffe_pitts30k_conv5_vlad_preL2_intra.mat">download</a></td>
+                <td></td>
+                <td> <a href="data/models/caffe_tokyoTM_conv5_vlad_preL2_intra.mat">download</a></td>
+            </tr>
+            <tr>
+                <th style="text-align:center">AlexNet + Max (10 MB)</th>
+                <td colspan="2"> <a href="data/models/caffe_offtheshelf_conv5_max.mat">download</a></td>
+                <td> <a href="data/models/caffe_pitts30k_conv5_max.mat">download</a></td>
+                <td> <a href="data/models/caffe_pitts250k_conv5_max.mat">download</a></td>
+                <td> <a href="data/models/caffe_tokyoTM_conv5_max.mat">download</a></td>
+            </tr>
+            </tbody>
+        </table>
+
+        <h4>Additional data</h4>
+
+        <ul>
+            <li>
+                <a href="data/netvlad_v100_datasets.tar.gz">All dataset specifications</a> (2 MB):<br>
+                Matlab structures that define the datasets, e.g. define train/validation/test splits, GPS coordinates of all points, time stamps for Tokyo Time Machine, etc.
+            </li>
+            <li>
+                <a href="data/netvlad_v100_initdata.tar.gz">Initialization data</a> (395 MB):<br>
+                Data needed to construct off-the-shelf networks with NetVLAD pooling, used as starting points for training.
+                It includes cluster centres one can use to compute VLAD.
+            </li>
+        </ul>
+
+        <h4>Datasets</h4>
+        <ul>
+            <li>Place recognition datasets:<br>
+                <ul>
+                    <li>
+                        <b>Tokyo Time Machine</b>: available on request.
+                        The train/val splits are provided with our code.
+                    </li>
+                    <li>
+                        <b>Tokyo 24/7</b>: available on request <a href="http://www.ok.ctrl.titech.ac.jp/~torii/project/247/" target="_blank">here</a>.
+                    </li>
+                    <li>
+                        <b>Pittsburgh 250k</b>: available on request <a href="http://www.ok.ctrl.titech.ac.jp/~torii/project/repttile/" target="_blank">here</a>.
+                        The train/val/test splits are provided with our code.
+                    </li>
+                    <li>
+                        <a href="data/tinyTimeMachine.tar.gz">Tiny subset of Tokyo Time Machine</a> (21 MB). Contains 360 images, just to be used to validate if the NetVLAD code is set up correctly.
+                    </li>
+                </ul>
+            </li>
+            <li>Object/image retrieval datasets (only used for testing):<br>
+                <ul>
+                    <li>
+                        <b>Oxford Buildings</b>:
+                        <a href="http://www.robots.ox.ac.uk/~vgg/data/oxbuildings/" target="_blank">Download</a> the 5k images and ground truth files, and place them into images/ and groundtruth/ subfolders of the dataset root folder.
+                    </li>
+                    <li>
+                        <b>Paris Buildings</b>:
+                        <a href="http://www.robots.ox.ac.uk/~vgg/data/parisbuildings/" target="_blank">Download</a> the 6k images and ground truth files, and place them into images/ and groundtruth/ subfolders of the dataset root folder. Also get, from the same page, the <a href="http://www.robots.ox.ac.uk/~vgg/data/parisbuildings/corrupt.txt">list of corrupt images</a> and place it into the dataset root.
+                    </li>
+                    <li>
+                        <b>INRIA Holidays</b>:
+                        <a href="https://lear.inrialpes.fr/~jegou/data.php#holidays" target="_blank">Download</a> the 1491 images and place them into the jpg/ subfolder of the dataset root folder. The rotated dataset is available on request (I got it from <a href="https://events.yandex.com/people/102794/">Artem Babenko</a>) and should be placed into the jpg_rotated/ subfolder.
+                    </li>
+                    <ul>
+                        </li>
+                    </ul>
+    </div>
+
+    <div class="row">
+        <h3>Acknowledgements</h3>
+        <p>This work was partly supported by
+            RVO13000 - Conceptual development of research organization,
+            the ERC grant LEAP (no. 336845), ANR project Semapolis (ANR-13-CORD-0003),
+            JSPS KAKENHI Grant Number 15H05313, the Inria CityLab IPL,
+            and the Intelligence Advanced Research Projects Activity (IARPA) via Air Force Research Laboratory, contract FA8650-12-C-7212.
+            The U.S. Government is authorized to reproduce and distribute reprints for Governmental purposes notwithstanding any copyright annotation thereon. Disclaimer: The views and conclusions contained herein are those of the authors and should not be interpreted as necessarily representing the official policies or endorsements, either expressed or implied, of IARPA, AFRL, or the U.S. Government.</p>
+    </div>
+
+
+    <div class="row">
+        <h3>Copyright Notice</h3>
+        <p>The documents contained in these directories are included by the contributing authors as a means to ensure timely dissemination of scholarly and technical work on a non-commercial basis. Copyright and all rights therein are maintained by the authors or by other copyright holders, notwithstanding that they have offered their works here electronically. It is understood that all persons copying this information will adhere to the terms and constraints invoked by each author's copyright.</p>
+    </div>
+
+</div> <!-- /container -->
+
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+</body>
+</html>
+
